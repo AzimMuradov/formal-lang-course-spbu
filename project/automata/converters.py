@@ -8,7 +8,7 @@ from pyformlang.finite_automaton import (
 from pyformlang.regular_expression import Regex
 
 
-def convert_regex_to_minimal_dfa(regex: str) -> DeterministicFiniteAutomaton:
+def regex_to_dfa(regex: str) -> DeterministicFiniteAutomaton:
     """Convert the given regular expression into a minimal DFA.
 
     Parameters
@@ -24,7 +24,7 @@ def convert_regex_to_minimal_dfa(regex: str) -> DeterministicFiniteAutomaton:
     return Regex(regex).to_epsilon_nfa().minimize()
 
 
-def convert_graph_to_nfa(
+def graph_to_nfa(
     graph: MultiDiGraph,
     start_nodes: Set[int] = None,
     final_nodes: Set[int] = None,

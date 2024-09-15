@@ -14,8 +14,7 @@ from grammars_constants import REGEXES
 
 # Fix import statements in try block to run tests
 try:
-    from project.automata.converters import convert_regex_to_minimal_dfa as regex_to_dfa
-    from project.automata.converters import convert_graph_to_nfa as graph_to_nfa
+    from project.automata.converters import regex_to_dfa, graph_to_nfa
 except ImportError:
     pytestmark = pytest.mark.skip("Task 2 is not ready to test!")
 

@@ -53,12 +53,12 @@ def graph_to_nfa(
     """
     node_types = {"is_start": start_nodes, "is_final": final_nodes}
 
-    for is_prop_str, nodes in node_types.items():
+    for property_str, nodes in node_types.items():
         if not nodes:
-            view: NodeDataView = graph.nodes.data(data=is_prop_str, default=False)
-            nodes = {} if any(is_prop for _, is_prop in view) else set(graph.nodes)
+            view: NodeDataView = graph.nodes.data(data=property_str, default=False)
+            nodes = {} if any(property for _, property in view) else set(graph.nodes)
         for node in nodes:
-            graph.nodes[node][is_prop_str] = True
+            graph.nodes[node][property_str] = True
 
     enfa = NondeterministicFiniteAutomaton.from_networkx(graph)
     return enfa.remove_epsilon_transitions()
